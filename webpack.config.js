@@ -1,4 +1,26 @@
+const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const jsConfig = require('./jsconfig.json');
+
+function getWebpackAlias(jsConfig) {
+  const base = jsConfig.compilerOptions.baseUrl;
+  const paths = jsConfig.compilerOptions.paths;
+
+  return base && paths
+    ? Object.keys(paths).reduce((currentAlias, pathKey) => {
+      const [aliasKey] = pathKey.split('/');
+      const [pathToConfig] = paths[pathKey];
+      const [relativePath] = pathToConfig.split('/*');
+      const absolutePath = path.join(__dirname, base, relativePath);
+      return {
+        ...currentAlias,
+        [aliasKey]: absolutePath
+      };
+    }, {}) || {}
+    : {};
+}
+
+const alias = getWebpackAlias(jsConfig);
 
 module.exports = {
   output: {
@@ -22,5 +44,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    alias,
+    extensions: ['', '.js', '.jsx']
   }
 };

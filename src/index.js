@@ -1,4 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
+import { App } from '@src/App';
+const container = document.getElementById("app");
 
-ReactDOM.render(<h1>Hello World from dev</h1>, document.getElementById("app"));
+const root = createRoot(container);
+root.render(
+  <>
+    <App tab="outlet" />
+  </>
+);

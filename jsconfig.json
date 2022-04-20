@@ -1,6 +1,21 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": {},
-  }
+    "paths": {
+      "@src/*": [
+        "/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "dist"
+  ]
 }
