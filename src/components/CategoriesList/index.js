@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Category } from '@components/Category';
 import { List, Item } from '@components/CategoriesList/styles';
-import { to } from '@tools/to';
-import endPoints from '@services/api';
-import axios from 'axios';
+import { useCategories } from '@hooks/useCategories';
 
 export const CategoriesList = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const getCategories = async () => {
-      const [err, response] = await to(axios.get(endPoints.categories.get));
-      if (err) return console.log(err);
-      const { data } = response;
-      setCategories(data);
-    };
-    getCategories();
-  }, []);
+  const { categories } = useCategories();
 
   return (
     <>

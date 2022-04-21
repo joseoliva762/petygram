@@ -6,7 +6,7 @@ export const List = styled.ul`
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   display: flex;
-  filter: drop-shadow(rgba(0, 0, 0, 0.067) 0px 1px 6px);
+  /* filter: drop-shadow(rgba(0, 0, 0, 0.067) 0px 1px 6px); */
   gap: 4px;
   justify-content: flex-start;
   list-style: none;

@@ -7,9 +7,10 @@ export const CardWrapper = styled.article`
   border: 1px solid #cccccc;
   border-radius: 4px;
   display: flex;
-  filter: drop-shadow(rgba(0, 0, 0, 0.067) 0px 1px 6px);
+  /* filter: drop-shadow(rgba(0, 0, 0, 0.067) 0px 1px 6px); */
   flex-direction: column;
   gap: 4px;
+  min-height: 200px;
   overflow: hidden;
   width: 100%;
 
