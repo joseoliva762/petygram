@@ -7,6 +7,15 @@
       ],
       "@components/*": [
         "components/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@tools/*": [
+        "tools/*"
+      ],
+      "@services/*": [
+        "services/*"
       ]
     }
   },

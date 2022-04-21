@@ -26,6 +26,7 @@
   "homepage": "https://github.com/joseoliva762/petygram.git#readme",
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.4",
@@ -38,12 +39,15 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "axios": "^0.26.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1",
     "styled-components": "^5.3.5"
   }
 }

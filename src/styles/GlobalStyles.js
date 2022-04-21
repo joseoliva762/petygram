@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   *, *::before, *::after {
@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
   ul, li, h1, h2, h3, p, button {
     margin: 0;
+    font-family: inherit;
   }
 
   ul {
@@ -25,17 +26,23 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: #fefefe;
+    background: #fafafa;
     height: 100vh;
     margin: 0 auto;
-    max-width: 500px;
     overscroll-behavior: none;
     width: 100%;
+
+    @media (max-width: 613px) {
+      background: #fff;
+    }
   }
 
   #app {
-    height: 100vh;
-    padding: 12px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px;
     width: 100%;
   }
 `;

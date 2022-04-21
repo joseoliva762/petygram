@@ -1,23 +1,33 @@
 import React from 'react';
-import { CategoriesList } from '@components/CategoriesList';
-import { GlobalStyles } from '@src/GlobalStyles';
 import styled from 'styled-components';
+import { GlobalStyles } from './styles/GlobalStyles';
+import { CategoriesList } from '@components/CategoriesList';
+import { PhotoCardList } from '@components/PhotoCardList';
+import { Header } from '@components/Header';
 
 const Layout = styled.div`
-  border: 1px solid rgb(204, 204, 204);
+  align-items: center;
+  background: transparent;
   border-radius: 4px;
-  filter: drop-shadow(rgba(0, 0, 0, 0.067) 0px 1px 6px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
   min-height: 100%;
   overflow-x: hidden;
-  padding-bottom: 10px;
+  max-width: 614px;
+  padding: 24px 0px;
+  width: 100%;
 `;
 
 export const App = () => {
   return (
     <>
+      <GlobalStyles />
+      <Header />
       <Layout>
-        <GlobalStyles />
         <CategoriesList />
+        <PhotoCardList />
       </Layout>
     </>
   );

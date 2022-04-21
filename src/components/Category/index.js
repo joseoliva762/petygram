@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, ImageWrapper, Image } from './style';
+import { Anchor, ImageWrapper, Image } from './styles';
 
 export const Category = ({ cover, path, emoji }) => {
   return (

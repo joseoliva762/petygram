@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const jsConfig = require('./jsconfig.json');
+console.log(jsConfig)
 
 function getWebpackAlias(jsConfig) {
   const base = jsConfig.compilerOptions.baseUrl;
