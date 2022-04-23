@@ -1,26 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { useNearScreen } from '@hooks/useNearScreen';
+import { useLocalStorage } from '@hooks/useLocalStorage';
 import { CardWrapper, Anchor, ImageWrapper, Image, Button } from '@components/PhotoCard/styles';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 const DEFAULT_IMAGE = 'https://source.unsplash.com/random';
 
 export const PhotoCard = ({ id, src = DEFAULT_IMAGE, likes = 0 }) => {
-  const [show, setShow] = React.useState(false);
-  const cardRef = useRef(null);
+  const { show, elementRef } = useNearScreen();
+  const key = `like-${id}`;
+  const [liked, setLiked] = useLocalStorage(key, false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const { isIntersecting } = entries[0];
-      if (isIntersecting) {
-        setShow(true);
-        observer.disconnect();
-      }
-    });
-    observer.observe(cardRef.current);
-  }, []);
+  const handleLike = (value) => {
+    setLiked(value);
+  };
+
+  const fill = liked ? '#f00' : '#000';
+  const LikeIcon = liked ? AiFillHeart : AiOutlineHeart;
 
   return (
     <>
-      <CardWrapper ref={cardRef}>
+      <CardWrapper ref={elementRef}>
         {show && (
           <>
             <Anchor href={`/detail/${id}`}>
@@ -28,9 +27,9 @@ export const PhotoCard = ({ id, src = DEFAULT_IMAGE, likes = 0 }) => {
                 <Image src={src} alt={`card-${id}`} />
               </ImageWrapper>
             </Anchor>
-            <Button>
+            <Button onClick={() => handleLike(!liked)}>
               <div>
-                <AiOutlineHeart size="24px" />
+                <LikeIcon size="24px" fill={fill} />
               </div>
               <p>{likes} Me gusta</p>
             </Button>
