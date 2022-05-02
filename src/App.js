@@ -4,6 +4,7 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import { CategoriesList } from '@components/CategoriesList';
 import { PhotoCardList } from '@components/PhotoCardList';
 import { Header } from '@components/Header';
+import { PhotoCardWithQuery } from '@containers/PhotoCardWithQuery';
 
 const Layout = styled.div`
   align-items: center;
@@ -21,13 +22,22 @@ const Layout = styled.div`
 `;
 
 export const App = () => {
+  const search = window.location.search;
+  const urlParams = new URLSearchParams(search);
+  const detailId = urlParams.get('detail');
   return (
     <>
       <GlobalStyles />
       <Header />
       <Layout>
-        <CategoriesList />
-        <PhotoCardList />
+        {detailId ? (
+          <PhotoCardWithQuery id={detailId} />
+        ) : (
+          <>
+            <CategoriesList />
+            <PhotoCardList categoryId={2} />
+          </>
+        )}
       </Layout>
     </>
   );

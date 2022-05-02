@@ -19,6 +19,9 @@
       ],
       "@hooks/*": [
         "hooks/*"
+      ],
+      "@containers/*": [
+        "containers/*"
       ]
     }
   },

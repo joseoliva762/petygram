@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNearScreen } from '@hooks/useNearScreen';
 import { useLocalStorage } from '@hooks/useLocalStorage';
-import { CardWrapper, Anchor, ImageWrapper, Image, Button } from '@components/PhotoCard/styles';
+import { CardWrapper, Anchor, ImageWrapper, Image } from '@components/PhotoCard/styles';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { FavButton } from '@components/FavButton';
 const DEFAULT_IMAGE = 'https://source.unsplash.com/random';
 
 export const PhotoCard = ({ id, src = DEFAULT_IMAGE, likes = 0 }) => {
@@ -22,17 +23,12 @@ export const PhotoCard = ({ id, src = DEFAULT_IMAGE, likes = 0 }) => {
       <CardWrapper ref={elementRef}>
         {show && (
           <>
-            <Anchor href={`/detail/${id}`}>
+            <Anchor href={`/?detail=${id}`}>
               <ImageWrapper>
                 <Image src={src} alt={`card-${id}`} />
               </ImageWrapper>
             </Anchor>
-            <Button onClick={() => handleLike(!liked)}>
-              <div>
-                <LikeIcon size="24px" fill={fill} />
-              </div>
-              <p>{likes} Me gusta</p>
-            </Button>
+            <FavButton liked={liked} likes={likes} onClick={handleLike} LikeIcon={LikeIcon} fill={fill} />
           </>
         )}
       </CardWrapper>
