@@ -10,7 +10,6 @@ export const FavButton = ({ liked, likes = 0, onClick, LikeIcon, fill }) => {
         </div>
         <p>{likes} Me gusta</p>
       </Button>
-      ;
     </>
   );
 };
