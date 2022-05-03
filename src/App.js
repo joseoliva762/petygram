@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { CategoriesList } from '@components/CategoriesList';
-import { PhotoCardList } from '@components/PhotoCardList';
 import { Header } from '@components/Header';
 import { PhotoCardWithQuery } from '@containers/PhotoCardWithQuery';
+import { Home } from '@pages/Home';
 
 const Layout = styled.div`
   align-items: center;
@@ -29,16 +28,7 @@ export const App = () => {
     <>
       <GlobalStyles />
       <Header />
-      <Layout>
-        {detailId ? (
-          <PhotoCardWithQuery id={detailId} />
-        ) : (
-          <>
-            <CategoriesList />
-            <PhotoCardList categoryId={2} />
-          </>
-        )}
-      </Layout>
+      <Layout>{detailId ? <PhotoCardWithQuery id={detailId} /> : <Home />}</Layout>
     </>
   );
 };

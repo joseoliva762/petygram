@@ -22,6 +22,9 @@
       ],
       "@containers/*": [
         "containers/*"
+      ],
+      "@pages/*": [
+        "pages/*"
       ]
     }
   },
