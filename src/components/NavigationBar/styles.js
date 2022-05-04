@@ -26,8 +26,10 @@ export const Link = styled(LinkRouter)`
   text-decoration: none;
   text-align: center;
 
+  /* @media (min-width: 613px) { */
   &:hover {
     background: #fafafa;
     border: 1px solid #ccc;
   }
+  /* } */
 `;
