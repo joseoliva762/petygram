@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Router } from '@reach/router';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Header } from '@components/Header';
 import { PhotoCardWithQuery } from '@containers/PhotoCardWithQuery';
@@ -28,7 +29,15 @@ export const App = () => {
     <>
       <GlobalStyles />
       <Header />
-      <Layout>{detailId ? <PhotoCardWithQuery id={detailId} /> : <Home />}</Layout>
+      <Layout>
+        {detailId ? (
+          <PhotoCardWithQuery id={detailId} />
+        ) : (
+          <Router>
+            <Home path="/" />
+          </Router>
+        )}
+      </Layout>
     </>
   );
 };
