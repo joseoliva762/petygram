@@ -1,19 +1,10 @@
 import React from 'react';
-import { useUser } from '@hooks/useUser';
+import { SingIn } from '@containers/SingIn';
 
 export const NotRegistred = () => {
-  const { signIn } = useUser();
-
-  const handleSignIn = (event) => {
-    event.preventDefault();
-    signIn();
-  };
-
   return (
     <>
-      <form onSubmit={handleSignIn}>
-        <button type="submit">Sign in</button>
-      </form>
+      <SingIn />
     </>
   );
 };
