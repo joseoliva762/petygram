@@ -5,7 +5,9 @@ import { Logo } from '@components/Logo';
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo />
+      <a href="/">
+        <Logo />
+      </a>
     </HeaderWrapper>
   );
 };
