@@ -35,6 +35,7 @@ export const App = () => {
         ) : (
           <Router>
             <Home path="/" />
+            <Home path="/pet/:id" />
           </Router>
         )}
       </Layout>

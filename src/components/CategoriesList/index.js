@@ -13,7 +13,7 @@ export const CategoriesList = () => {
           {categories &&
             categories.map((category, index) => (
               <Item key={`categories-category-${index}-${(category.id || index) + 1}-${category?.name}`}>
-                <Category {...category} />
+                <Category {...category} path={`/pet/${category.id}`} />
               </Item>
             ))}
         </List>
