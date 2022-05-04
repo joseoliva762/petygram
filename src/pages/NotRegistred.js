@@ -1,9 +1,19 @@
 import React from 'react';
+import { useUser } from '@hooks/useUser';
 
 export const NotRegistred = () => {
+  const { signIn } = useUser();
+
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    signIn();
+  };
+
   return (
     <>
-      <h1>NotRegistred</h1>
+      <form onSubmit={handleSignIn}>
+        <button type="submit">Sign in</button>
+      </form>
     </>
   );
 };

@@ -8,6 +8,7 @@ import { Details } from '@pages/Details';
 import { Favorites } from '@pages/Favorites';
 import { User } from '@pages/User';
 import { NotRegistred } from '@pages/NotRegistred';
+import { useUser } from '@hooks/useUser';
 
 const Layout = styled.div`
   align-items: center;
@@ -24,11 +25,14 @@ const Layout = styled.div`
   width: 100%;
 `;
 
-const AuthGuard = ({ children }) => {
-  return children({ isAuth: false });
+const AuthGuard = ({ children, user }) => {
+  console.log({ user });
+  return children({ isAuth: user.isAuth });
 };
 
 export const App = () => {
+  const { user } = useUser();
+
   return (
     <>
       <GlobalStyles />
@@ -39,7 +43,7 @@ export const App = () => {
           <Home path="/categories/:categoryId" />
           <Details path="/details/:detailId" />
         </Router>
-        <AuthGuard>
+        <AuthGuard user={user}>
           {({ isAuth }) => {
             const FavoritesPage = isAuth ? Favorites : NotRegistred;
             const UserPage = isAuth ? User : NotRegistred;
