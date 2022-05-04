@@ -22,6 +22,7 @@ export const Link = styled(LinkRouter)`
   height: 44px;
   justify-content: center;
   min-width: 44px;
+  outline: none;
   padding: 4px;
   text-decoration: none;
   text-align: center;
