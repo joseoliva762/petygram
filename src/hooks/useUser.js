@@ -15,7 +15,8 @@ export const useUser = () => useContext(UserContext);
 
 const useUserProvider = () => {
   const [user, setUser] = useState({
-    isAuth: false
+    isAuth: false,
+    needRegister: false
   });
 
   const signIn = () => {
@@ -25,8 +26,16 @@ const useUserProvider = () => {
     });
   };
 
+  const toggleNeedRegister = () => {
+    setUser({
+      ...user,
+      needRegister: !user.needRegister
+    });
+  };
+
   return {
     user,
-    signIn
+    signIn,
+    toggleNeedRegister
   };
 };

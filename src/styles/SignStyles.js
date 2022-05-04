@@ -9,7 +9,7 @@ export const SignInWrapper = styled.div`
   width: 100%;
 `;
 
-export const SingInContent = styled.div`
+export const SignInContent = styled.div`
   background: #fff;
   align-items: center;
   display: flex;
@@ -49,6 +49,14 @@ export const Text = styled.p`
   text-align: center;
 `;
 
+export const SubText = styled.p`
+  color: #8e8e8e;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+`;
+
 export const SignUpWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -70,4 +78,20 @@ export const Link = styled(LinkRouter)`
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
+`;
+
+export const ToggleState = styled.button`
+  background: transparent;
+  border: none;
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

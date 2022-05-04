@@ -1,21 +1,25 @@
 import React from 'react';
-import { SignInWrapper, SingInContent, SignInForm, Text, SignUpWrapper, Link } from '@styles/SignStyles';
+import { SignInWrapper, SignInContent, SignInForm, Text, SignUpWrapper, ToggleState } from '@styles/SignStyles';
 import { useUser } from '@hooks/useUser';
 import { UserForm } from '@components/UserForm';
 import PetygramIcon from '@components/PetygramIcon';
 
 export const SingIn = () => {
-  const { signIn } = useUser();
+  const { signIn, toggleNeedRegister } = useUser();
 
   const handleSignIn = (event) => {
     event.preventDefault();
     signIn();
   };
 
+  const handleNavigate = () => {
+    toggleNeedRegister();
+  };
+
   return (
     <>
       <SignInWrapper>
-        <SingInContent>
+        <SignInContent>
           <SignInForm>
             <PetygramIcon />
             <Text>Inicia sesión con tu cuenta en petygram y descubre el mundo con tu mascota</Text>
@@ -23,9 +27,9 @@ export const SingIn = () => {
           </SignInForm>
           <SignUpWrapper>
             <Text>¿No tienes cuenta?</Text>
-            <Link to="/auth/signup">Regístrate</Link>
+            <ToggleState onClick={handleNavigate}>Regístrate</ToggleState>
           </SignUpWrapper>
-        </SingInContent>
+        </SignInContent>
       </SignInWrapper>
     </>
   );
