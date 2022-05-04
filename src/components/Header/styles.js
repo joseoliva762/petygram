@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from '@reach/router';
+import { Link as LinkRouter } from '@reach/router';
 
 export const HeaderWrapper = styled.header`
   align-items: center;
@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   gap: 4px;
   height: 60px;
-  justify-content: center;
+  justify-content: space-between;
   position: sticky;
   overflow: hidden;
   top: 0;
@@ -22,4 +22,7 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
-export const Anchor = styled(Link)``;
+export const Link = styled(LinkRouter)`
+  text-align: center;
+  text-decoration: none;
+`;

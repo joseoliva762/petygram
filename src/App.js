@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Router } from '@reach/router';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Header } from '@components/Header';
-import { PhotoCardWithQuery } from '@containers/PhotoCardWithQuery';
 import { Home } from '@pages/Home';
+import { Details } from '@pages/Details';
 
 const Layout = styled.div`
   align-items: center;
@@ -22,22 +22,16 @@ const Layout = styled.div`
 `;
 
 export const App = () => {
-  const search = window.location.search;
-  const urlParams = new URLSearchParams(search);
-  const detailId = urlParams.get('detail');
   return (
     <>
       <GlobalStyles />
       <Header />
       <Layout>
-        {detailId ? (
-          <PhotoCardWithQuery id={detailId} />
-        ) : (
-          <Router style={{ width: '100%' }}>
-            <Home path="/" style="width: 100%" />
-            <Home path="/categories/:categoryId" />
-          </Router>
-        )}
+        <Router style={{ width: '100%' }}>
+          <Home path="/" style="width: 100%" />
+          <Home path="/categories/:categoryId" />
+          <Details path="/details/:detailId" />
+        </Router>
       </Layout>
     </>
   );

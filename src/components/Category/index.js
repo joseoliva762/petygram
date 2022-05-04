@@ -1,15 +1,15 @@
 import React from 'react';
-import { Anchor, ImageWrapper, Image } from './styles';
+import { Link, ImageWrapper, Image } from './styles';
 
 export const Category = ({ cover, path, emoji }) => {
   return (
     <>
-      <Anchor to={path}>
+      <Link to={path}>
         <ImageWrapper>
           <Image src={cover} alt={emoji} />
         </ImageWrapper>
         {emoji}
-      </Anchor>
+      </Link>
     </>
   );
 };

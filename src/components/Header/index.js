@@ -1,13 +1,15 @@
 import React from 'react';
-import { Anchor, HeaderWrapper } from './styles';
+import { Link, HeaderWrapper } from './styles';
 import { Logo } from '@components/Logo';
+import { NavigationBar } from '@components/NavigationBar';
 
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <Anchor to="/">
+      <Link to="/">
         <Logo />
-      </Anchor>
+      </Link>
+      <NavigationBar />
     </HeaderWrapper>
   );
 };

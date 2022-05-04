@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link as LinkRouter } from '@reach/router';
 
-const Anchor = styled.a`
+const Link = styled(LinkRouter)`
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #000;
@@ -15,5 +16,5 @@ const Anchor = styled.a`
 `;
 
 export const Back = ({ path }) => {
-  return <Anchor href={path || '/'}>Back</Anchor>;
+  return <Link to={path || '/'}>Back</Link>;
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { fadeIn } from './../../styles/animation';
+import { Link as LinkRouter } from '@reach/router';
 
 export const CardWrapper = styled.article`
   align-items: center;
@@ -21,7 +22,7 @@ export const CardWrapper = styled.article`
   }
 `;
 
-export const Anchor = styled.a`
+export const Link = styled(LinkRouter)`
   background-color: #fafafa;
   display: grid;
   gap: 4px;
