@@ -7,13 +7,13 @@ export const NavigationBar = () => {
     <>
       <Navigation>
         <Link to="/">
-          <RiHomeLine fill="#000" size="24px" />
+          <RiHomeLine size="24px" />
         </Link>
         <Link to="/favorites">
-          <RiHeartLine fill="#000" size="24px" />
+          <RiHeartLine size="24px" />
         </Link>
         <Link to="/users">
-          <RiUserSmileLine fill="#000" size="24px" />
+          <RiUserSmileLine size="24px" />
         </Link>
       </Navigation>
     </>
