@@ -33,8 +33,8 @@ export const App = () => {
         {detailId ? (
           <PhotoCardWithQuery id={detailId} />
         ) : (
-          <Router>
-            <Home path="/" />
+          <Router style={{ width: '100%' }}>
+            <Home path="/" style="width: 100%" />
             <Home path="/categories/:categoryId" />
           </Router>
         )}
