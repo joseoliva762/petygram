@@ -5,6 +5,9 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import { Header } from '@components/Header';
 import { Home } from '@pages/Home';
 import { Details } from '@pages/Details';
+import { Favorites } from '@pages/Favorites';
+import { User } from '@pages/User';
+import { NotRegistred } from '@pages/NotRegistred';
 
 const Layout = styled.div`
   align-items: center;
@@ -21,6 +24,10 @@ const Layout = styled.div`
   width: 100%;
 `;
 
+const AuthGuard = ({ children }) => {
+  return children({ isAuth: false });
+};
+
 export const App = () => {
   return (
     <>
@@ -32,6 +39,18 @@ export const App = () => {
           <Home path="/categories/:categoryId" />
           <Details path="/details/:detailId" />
         </Router>
+        <AuthGuard>
+          {({ isAuth }) => {
+            const FavoritesPage = isAuth ? Favorites : NotRegistred;
+            const UserPage = isAuth ? User : NotRegistred;
+            return (
+              <Router style={{ width: '100%' }}>
+                <FavoritesPage path="/favorites" />
+                <UserPage path="/users" />
+              </Router>
+            );
+          }}
+        </AuthGuard>
       </Layout>
     </>
   );
