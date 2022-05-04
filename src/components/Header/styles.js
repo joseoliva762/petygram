@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from '@reach/router';
 
 export const HeaderWrapper = styled.header`
   align-items: center;
@@ -20,3 +21,5 @@ export const HeaderWrapper = styled.header`
     filter: none;
   }
 `;
+
+export const Anchor = styled(Link)``;

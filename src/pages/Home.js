@@ -14,7 +14,6 @@ const HomeWrapper = styled.div`
   min-height: 100%;
   overflow-x: hidden;
   max-width: 614px;
-  padding: 24px 0px;
   width: 100%;
 `;
 
