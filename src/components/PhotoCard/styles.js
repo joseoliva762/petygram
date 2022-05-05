@@ -23,11 +23,12 @@ export const CardWrapper = styled.article`
 `;
 
 export const Link = styled(LinkRouter)`
+  align-items: center;
   background-color: #fafafa;
-  display: grid;
+  display: flex;
   gap: 4px;
   height: 100%;
-  place-items: center;
+  justify-content: center;
   text-decoration: none;
   width: 100%;
 `;
