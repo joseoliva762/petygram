@@ -11,7 +11,10 @@ export const SingUp = () => {
 
   const handleSignUp = ({ email, password }) => {
     const input = { email, password };
-    register({ variables: { input } }).then(signIn);
+    register({ variables: { input } }).then(({ data }) => {
+      const { signup } = data;
+      signIn(signup);
+    });
   };
 
   const handleNavigate = () => {
