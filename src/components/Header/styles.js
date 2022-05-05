@@ -26,8 +26,4 @@ export const Link = styled(LinkRouter)`
   font-size: 12px;
   text-align: center;
   text-decoration: none;
-
-  @media (min-width: 613px) {
-    font-size: 16px;
-  }
 `;

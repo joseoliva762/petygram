@@ -42,4 +42,28 @@ export const Button = styled.button`
   outline: none;
   padding: 0 16px;
   width: 100%;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+`;
+
+export const ErrorBox = styled.div`
+  align-items: center;
+  background: #fee2e2;
+  border: 1px solid #ed4956;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #ed4956;
+  cursor: default;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  margin: 0;
+  min-height: 36px;
+  outline: none;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
 `;

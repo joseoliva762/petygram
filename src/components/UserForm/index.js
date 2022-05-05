@@ -1,8 +1,9 @@
 import React from 'react';
 import { useInputValue } from '@hooks/useInputValue';
-import { Form, Input, Button } from '@components/UserForm/styles';
+import { Form, Input, Button, ErrorBox } from '@components/UserForm/styles';
+import { LoadingSpin } from '@components/LoadingSpin';
 
-export const UserForm = ({ onSubmit, submitText }) => {
+export const UserForm = ({ onSubmit, submitText, isLoading, hasAnError, errorMessage, disabled }) => {
   const email = useInputValue('');
   const password = useInputValue('');
 
@@ -13,11 +14,20 @@ export const UserForm = ({ onSubmit, submitText }) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <Input type="email" name="mail" placeholder="Usuario o correo electrónico" {...email} />
-        <Input type="password" name="password" placeholder="Contraseña" {...password} />
-        <Button type="submit">{submitText || 'Iniciar sesión'}</Button>
+      <Form disabled={disabled} onSubmit={handleSubmit}>
+        <Input disabled={disabled} type="email" name="mail" placeholder="Usuario o correo electrónico" {...email} />
+        <Input disabled={disabled} type="password" name="password" placeholder="Contraseña" {...password} />
+        <Button disabled={disabled} type="submit">
+          {isLoading ? <LoadingSpin spinColor="#fff" /> : <p>{submitText || 'Iniciar sesión'}</p>}
+        </Button>
       </Form>
+      {hasAnError && (
+        <>
+          <ErrorBox>
+            <p>{errorMessage || 'Hubo algún problema con el servicio'}</p>
+          </ErrorBox>
+        </>
+      )}
     </>
   );
 };

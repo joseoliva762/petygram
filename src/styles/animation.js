@@ -16,3 +16,18 @@ export const fadeIn = ({ time = '1s', type = 'ease' } = {}) => {
     animation: ${time} ${fadeInKeyframes} ${type};
   `;
 };
+
+const animateSpinKeyframes = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const SpinOn = ({ time = '1s', type = 'linear' } = {}) => {
+  return css`
+    animation: ${time} ${animateSpinKeyframes} ${type} infinite;
+  `;
+};
