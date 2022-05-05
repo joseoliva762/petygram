@@ -1,6 +1,39 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": {},
-  }
+    "paths": {
+      "@src/*": [
+        "/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@tools/*": [
+        "tools/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@containers/*": [
+        "containers/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "dist"
+  ]
 }

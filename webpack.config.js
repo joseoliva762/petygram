@@ -1,12 +1,20 @@
+const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const jsConfig = require('./jsconfig.json');
+const { getWebpackAlias } = require('./getWebPackAlias');
+
+
+const alias = getWebpackAlias(jsConfig);
 
 module.exports = {
   output: {
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/'
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      favicon: './src/favicon.ico'
     })
   ],
   module: {
@@ -22,5 +30,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    alias,
+    extensions: ['', '.js', '.jsx']
   }
 };
