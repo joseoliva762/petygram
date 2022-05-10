@@ -3,12 +3,15 @@ import { useNearScreen } from '@hooks/useNearScreen';
 import { useToggleLike } from '@hooks/useToggleLike';
 import { CardWrapper, Link, ImageWrapper, Image } from '@components/PhotoCard/styles';
 import { FavButton } from '@components/FavButton';
+import { navigate } from '@reach/router';
 
 const DEFAULT_IMAGE = 'https://source.unsplash.com/random';
 
 export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0 }) => {
   const { show, elementRef } = useNearScreen();
-  const { mutation } = useToggleLike();
+  const { mutation, mutationError } = useToggleLike();
+
+  mutationError && navigate(`/users`);
 
   const handleLike = () => {
     mutation({
