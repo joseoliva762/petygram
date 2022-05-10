@@ -26,7 +26,6 @@ const Layout = styled.div`
 `;
 
 const AuthGuard = ({ children, user }) => {
-  console.log({ user });
   return children({ isAuth: user.isAuth });
 };
 

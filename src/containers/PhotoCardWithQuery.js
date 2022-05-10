@@ -15,7 +15,6 @@ const BackWrapper = styled.div`
 
 export const PhotoCardWithQuery = ({ id }) => {
   const { data, error, loading } = useGetSinglePhoto(id);
-  console.log({ data, error, loading });
   if (loading) return <p>Loading...</p>;
   if (error || !data) return <p>No hay contenido disponible</p>;
   return (
