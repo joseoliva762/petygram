@@ -1,15 +1,41 @@
 import React from 'react';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { onError } from '@apollo/client/link/error';
 import { createRoot } from 'react-dom/client';
 import { App } from '@src/App';
 import { UserProvider } from '@hooks/useUser';
 
-const container = document.getElementById('app');
-const client = new ApolloClient({
-  uri: 'https://petygram-server.vercel.app/graphql',
-  cache: new InMemoryCache()
+const httpLink = createHttpLink({
+  uri: 'https://petygram-server.vercel.app/graphql'
 });
 
+const authLink = setContext((_, { headers }) => {
+  const token = sessionStorage.getItem('token');
+  const authorization = token ? `Bearer ${token}` : '';
+  return {
+    headers: {
+      ...headers,
+      authorization
+    }
+  };
+});
+
+const authError = ({ networkError }) => {
+  console.log('[Network error]:', networkError);
+  if (networkError && networkError.result.code === 'invalid_token') {
+    sessionStorage.removeItem('token');
+    location.href = '/';
+  }
+};
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+  onError: onError(authError)
+});
+
+const container = document.getElementById('app');
 const root = createRoot(container);
 root.render(
   <>
