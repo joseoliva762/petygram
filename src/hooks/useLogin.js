@@ -5,6 +5,7 @@ const withLogin = gql`
     login(input: $input)
   }
 `;
+
 export const useLogin = () => {
   const [login, { loading: loginLoading, error: loginError }] = useMutation(withLogin);
   return {
