@@ -1,21 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PageWrapper } from '@styles/SignStyles';
 import { Favs } from '@containers/Favs';
-
-const FavsWrapper = styled.div`
-  align-items: flex-start;
-  background: transparent;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: flex-start;
-  max-width: 614px;
-  min-height: 100%;
-  overflow-x: hidden;
-  padding: 0px 8px;
-  width: 100%;
-`;
 
 const FavTitle = styled.h1`
   font-size: 24px;
@@ -27,10 +13,10 @@ const FavTitle = styled.h1`
 export const Favorites = () => {
   return (
     <>
-      <FavsWrapper>
+      <PageWrapper>
         <FavTitle>Favoritos</FavTitle>
         <Favs />
-      </FavsWrapper>
+      </PageWrapper>
     </>
   );
 };

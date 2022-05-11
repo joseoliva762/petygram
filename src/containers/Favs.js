@@ -8,7 +8,7 @@ export const Favs = () => {
   const { favs, favsLoading, favsError } = useFavs();
 
   if (favsLoading) return <LoadingSpin />;
-  if (favsError) return <p>No hay contenido disponible</p>;
+  if (favsError || !favs?.length) return <p>No hay contenido disponible</p>;
   console.log({ favs });
   return (
     <Grid>

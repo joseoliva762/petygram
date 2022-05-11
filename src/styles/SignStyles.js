@@ -57,7 +57,7 @@ export const SubText = styled.p`
   text-align: center;
 `;
 
-export const SignUpWrapper = styled.div`
+export const SignWrapper = styled.div`
   align-items: center;
   display: flex;
   height: 64px;
@@ -94,4 +94,17 @@ export const ToggleState = styled.button`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const PageWrapper = styled.div`
+  align-items: flex-start;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+  min-height: 100%;
+  overflow-x: hidden;
+  max-width: 614px;
+  width: 100%;
 `;

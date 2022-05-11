@@ -17,10 +17,12 @@ export const Grid = styled.div`
   gap: 12px;
   grid-template-columns: repeat(auto-fill, 140px);
   width: 100%;
+  @media (max-width: 613px) {
+    place-content: center;
+  }
 `;
 
 export const Image = styled.img`
-  border-radius: 8px;
   height: 100%;
   object-fit: cover;
   width: 100%;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignInWrapper, SignInContent, SignInForm, Text, SignUpWrapper, ToggleState } from '@styles/SignStyles';
+import { SignInWrapper, SignInContent, SignInForm, Text, SignWrapper, ToggleState } from '@styles/SignStyles';
 import { useUser } from '@hooks/useUser';
 import { useLogin } from '@hooks/useLogin';
 import { UserForm } from '@components/UserForm';
@@ -37,10 +37,10 @@ export const SingIn = () => {
               errorMessage="Comprueba que tus datos estan correctos y vuelve a intentarlo."
             />
           </SignInForm>
-          <SignUpWrapper>
+          <SignWrapper>
             <Text>¿No tienes cuenta?</Text>
             <ToggleState onClick={handleNavigate}>Regístrate</ToggleState>
-          </SignUpWrapper>
+          </SignWrapper>
         </SignInContent>
       </SignInWrapper>
     </>
