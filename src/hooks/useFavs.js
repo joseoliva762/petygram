@@ -1,16 +1,24 @@
-import { gql, useMutation } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
 
 const withFavs = gql`
-  mutation login($input: UserCredentials!) {
-    login(input: $input)
+  query getFavs {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      userId
+    }
   }
 `;
 
 export const useFavs = () => {
-  // const [login, { loading: loginLoading, error: loginError }] = useMutation(withLogin);
-  // return {
-  //   login,
-  //   loginLoading,
-  //   loginError
-  // };
+  const options = { fetchPolicy: 'cache-and-network' };
+  const { data, loading: favsLoading, error: favsError } = useQuery(withFavs, options);
+  const favs = data?.favs;
+  return {
+    favs,
+    favsLoading,
+    favsError
+  };
 };

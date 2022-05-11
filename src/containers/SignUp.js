@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignInWrapper, SignInContent, SignInForm, Text, SignUpWrapper, ToggleState, SubText } from '@styles/SignStyles';
+import { SignInWrapper, SignInContent, SignInForm, Text, SignWrapper, ToggleState, SubText } from '@styles/SignStyles';
 import { useUser } from '@hooks/useUser';
 import { useRegister } from '@hooks/useRegister';
 import { UserForm } from '@components/UserForm';
@@ -38,10 +38,10 @@ export const SingUp = () => {
             />
             <SubText>Al registrarte, aceptas nuestras Condiciones, la Política de datos y la Política de cookies</SubText>
           </SignInForm>
-          <SignUpWrapper>
+          <SignWrapper>
             <Text>¿Tienes cuenta?</Text>
             <ToggleState onClick={handleNavigate}>Inicia sesión</ToggleState>
-          </SignUpWrapper>
+          </SignWrapper>
         </SignInContent>
       </SignInWrapper>
     </>

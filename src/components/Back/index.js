@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as LinkRouter } from '@reach/router';
+import { navigate } from '@reach/router';
 
 const Link = styled(LinkRouter)`
   border: 1px solid #ccc;
@@ -16,5 +17,14 @@ const Link = styled(LinkRouter)`
 `;
 
 export const Back = ({ path }) => {
-  return <Link to={path || '/'}>Back</Link>;
+  return (
+    <Link
+      to={path || '../'}
+      onClick={() => {
+        navigate(-1);
+      }}
+    >
+      Back
+    </Link>
+  );
 };
