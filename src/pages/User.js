@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useUser } from '@hooks/useUser';
-import { SignWrapper, PageWrapper } from '@styles/SignStyles';
+import { PageWrapper } from '@styles/SignStyles';
 
 const UserTitle = styled.h1`
   font-size: 24px;
