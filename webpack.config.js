@@ -23,7 +23,7 @@ module.exports = {
       short_name: 'Petygram',
       description: 'Conoce todas las mascotas de tu zona',
       background_color: '#fff',
-      theme_color: '#0095f6',
+      theme_color: '#fff',
       start_url: '/',
       scope: '/',
       display: 'standalone',
