@@ -3,7 +3,7 @@ import { Category } from '@components/Category';
 import { List, Item } from '@components/CategoriesList/styles';
 import { useCategories } from '@hooks/useCategories';
 
-export const CategoriesList = () => {
+const CategoriesListComponent = () => {
   const { categories } = useCategories();
 
   return (
@@ -21,3 +21,5 @@ export const CategoriesList = () => {
     </>
   );
 };
+
+export const CategoriesList = React.memo(CategoriesListComponent);

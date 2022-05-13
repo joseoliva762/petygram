@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNearScreen } from '@hooks/useNearScreen';
 import { useToggleLike } from '@hooks/useToggleLike';
 import { CardWrapper, Link, ImageWrapper, Image } from '@components/PhotoCard/styles';
@@ -15,7 +15,7 @@ export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0 }) => {
 
   const handleAuthError = () => {
     setTimeout(() => {
-      navigate(`/users`);
+      navigate(`/login`);
       signOut();
     });
   };

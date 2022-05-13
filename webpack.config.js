@@ -1,8 +1,9 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifestPlugin = require('webpack-pwa-manifest');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const jsConfig = require('./jsconfig.json');
 const { getWebpackAlias } = require('./getWebPackAlias');
-
 
 const alias = getWebpackAlias(jsConfig);
 
@@ -15,6 +16,44 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './src/index.html',
       favicon: './src/favicon.ico'
+    }),
+    new WebpackPwaManifestPlugin({
+      filename: 'manifest.webmanifest',
+      name: 'Petygram tu app de mascotas',
+      short_name: 'Petygram',
+      description: 'Conoce todas las mascotas de tu zona',
+      background_color: '#fff',
+      theme_color: '#0095f6',
+      start_url: '/',
+      scope: '/',
+      display: 'standalone',
+      orientation: 'portrait',
+      icons: [
+        {
+          src: path.resolve('src/assets/icon.png'),
+          sizes: [96, 128, 144, 192, 256, 384, 512],
+          destination: path.join('icons'),
+          purpose: 'maskable any'
+        }
+      ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://(.*)'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: new RegExp('https://petygram-server.vercel.app'),
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ]
     })
   ],
   module: {
