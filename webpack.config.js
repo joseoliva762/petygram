@@ -10,7 +10,8 @@ const alias = getWebpackAlias(jsConfig);
 module.exports = {
   output: {
     filename: 'app.bundle.js',
-    publicPath: '/'
+    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -72,14 +73,6 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader'
-          }
-        ]
       }
     ]
   },
