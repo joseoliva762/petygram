@@ -33,7 +33,7 @@ module.exports = {
         {
           src: path.resolve('src/assets/icon.png'),
           sizes: [96, 128, 144, 192, 256, 384, 512],
-          // destination: path.join('static/icons'),
+          destination: path.join('icons'),
           purpose: 'maskable any'
         }
       ]
@@ -72,6 +72,14 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   },

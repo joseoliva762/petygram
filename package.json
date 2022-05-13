@@ -33,6 +33,7 @@
     "babel-loader": "^8.2.4",
     "eslint": "^8.13.0",
     "eslint-plugin-react": "^7.29.4",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jsconfig-to-webpack-alias": "^1.0.1",
     "webpack": "^5.72.0",
