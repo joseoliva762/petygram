@@ -8,7 +8,7 @@ import { useUser } from '@hooks/useUser';
 
 const DEFAULT_IMAGE = 'https://source.unsplash.com/random';
 
-export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0 }) => {
+export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0, username }) => {
   const { show, elementRef } = useNearScreen();
   const { mutation, mutationError } = useToggleLike();
   const { signOut } = useUser();
@@ -35,6 +35,7 @@ export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0 }) => {
       <CardWrapper ref={elementRef}>
         {show && (
           <>
+            <h3>{username}</h3>
             <Link to={`/details/${id}`}>
               <ImageWrapper>
                 <Image src={src} alt={`card-${id}`} />
