@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 export const Meta = ({ title, description }) => {
   return (
     <Helmet>
-      <title>{title} | Petgram</title>
+      <title>{title} | Petygram</title>
       <meta name="description" content={description} />
     </Helmet>
   );

@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
   }
 
   *, *::before, *::after {
