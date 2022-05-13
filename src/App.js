@@ -1,14 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Router } from '@reach/router';
-import { GlobalStyles } from './styles/GlobalStyles';
+import React, { Suspense } from 'react';
+import { Router, Redirect } from '@reach/router';
+import { GlobalStyles } from '@styles/GlobalStyles';
 import { Header } from '@components/Header';
-import { Home } from '@pages/Home';
-import { Details } from '@pages/Details';
-import { Favorites } from '@pages/Favorites';
-import { User } from '@pages/User';
-import { NotRegistred } from '@pages/NotRegistred';
 import { useUser } from '@hooks/useUser';
+import styled from 'styled-components';
+import { LoadingSpin } from '@components/LoadingSpin';
+
+// Lazy loading
+const Home = React.lazy(() => import('@pages/Home'));
+const Details = React.lazy(() => import('@pages/Details'));
+const Favorites = React.lazy(() => import('@pages/Favorites'));
+const User = React.lazy(() => import('@pages/User'));
+const NotRegistred = React.lazy(() => import('@pages/NotRegistred'));
+const NotFound = React.lazy(() => import('@pages/NotFound'));
 
 const Layout = styled.div`
   align-items: center;
@@ -25,36 +29,29 @@ const Layout = styled.div`
   width: 100%;
 `;
 
-const AuthGuard = ({ children, user }) => {
-  return children({ isAuth: user.isAuth });
-};
-
 export const App = () => {
   const { user } = useUser();
 
   return (
     <>
-      <GlobalStyles />
-      <Header />
-      <Layout>
-        <Router style={{ width: '100%' }}>
-          <Home path="/" style="width: 100%" />
-          <Home path="/categories/:categoryId" />
-          <Details path="/details/:detailId" />
-        </Router>
-        <AuthGuard user={user}>
-          {({ isAuth }) => {
-            const FavoritesPage = isAuth ? Favorites : NotRegistred;
-            const UserPage = isAuth ? User : NotRegistred;
-            return (
-              <Router style={{ width: '100%' }}>
-                <FavoritesPage path="/favorites" />
-                <UserPage path="/users" />
-              </Router>
-            );
-          }}
-        </AuthGuard>
-      </Layout>
+      <Suspense fallback={<LoadingSpin />}>
+        <GlobalStyles />
+        <Header />
+        <Layout>
+          <Router style={{ width: '100%' }}>
+            <NotFound default />
+            <Home path="/" style="width: 100%" />
+            <Home path="/categories/:categoryId" />
+            <Details path="/details/:detailId" />
+            {!user.isAuth && <NotRegistred path="/login" />}
+            {!user.isAuth && <Redirect noThrow from="/favorites" to="/login" />}
+            {!user.isAuth && <Redirect noThrow from="/users" to="/login" />}
+            {user.isAuth && <Redirect noThrow from="/login" to="/" />}
+            <Favorites path="/favorites" />
+            <User path="/users" />
+          </Router>
+        </Layout>
+      </Suspense>
     </>
   );
 };

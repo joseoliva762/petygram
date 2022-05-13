@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useUser } from '@hooks/useUser';
 import { PageWrapper } from '@styles/SignStyles';
+import { AiOutlineLogout } from 'react-icons/ai';
+import { Meta } from '@components/Meta';
 
 const UserTitle = styled.h1`
   font-size: 24px;
@@ -11,12 +13,16 @@ const UserTitle = styled.h1`
 `;
 
 const SingOutButton = styled.button`
+  align-items: center;
   background: #fff;
   border: 1px solid transparent;
   color: #f00;
   cursor: pointer;
+  display: flex;
   font-size: 12px;
   font-weight: 600;
+  gap: 8px;
+  justify-content: center;
   padding: 8px 16px;
   min-height: 64px;
   width: 100%;
@@ -28,7 +34,7 @@ const SingOutButton = styled.button`
   }
 `;
 
-export const User = () => {
+const User = () => {
   const { signOut } = useUser();
 
   const handleSignOut = () => {
@@ -37,10 +43,16 @@ export const User = () => {
 
   return (
     <>
+      <Meta title="Usuario" description="Tu perfil de usuario" />
       <PageWrapper>
         <UserTitle>Usuario</UserTitle>
-        <SingOutButton onClick={handleSignOut}>Cerrar sesión</SingOutButton>
+        <SingOutButton onClick={handleSignOut}>
+          <AiOutlineLogout size={24} />
+          Cerrar sesión
+        </SingOutButton>
       </PageWrapper>
     </>
   );
 };
+
+export default User;
