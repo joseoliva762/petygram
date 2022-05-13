@@ -8,7 +8,7 @@ import { useUser } from '@hooks/useUser';
 
 const DEFAULT_IMAGE = 'https://source.unsplash.com/random';
 
-export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0 }) => {
+export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0, username }) => {
   const { show, elementRef } = useNearScreen();
   const { mutation, mutationError } = useToggleLike();
   const { signOut } = useUser();

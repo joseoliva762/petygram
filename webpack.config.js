@@ -10,7 +10,8 @@ const alias = getWebpackAlias(jsConfig);
 module.exports = {
   output: {
     filename: 'app.bundle.js',
-    publicPath: '/'
+    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -28,6 +29,7 @@ module.exports = {
       scope: '/',
       display: 'standalone',
       orientation: 'portrait',
+      crossorigin: 'use-credentials',
       icons: [
         {
           src: path.resolve('src/assets/icon.png'),
