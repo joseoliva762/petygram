@@ -18,7 +18,7 @@ module.exports = {
       favicon: './src/favicon.ico'
     }),
     new WebpackPwaManifestPlugin({
-      filename: 'manifest.webmanifest',
+      filename: 'manifest.json',
       name: 'Petygram tu app de mascotas',
       short_name: 'Petygram',
       description: 'Conoce todas las mascotas de tu zona',
@@ -38,6 +38,10 @@ module.exports = {
       ]
     }),
     new WorkboxWebpackPlugin.GenerateSW({
+      swDest: 'service-worker.js',
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 5000000,
       runtimeCaching: [
         {
           urlPattern: new RegExp('https://(.*)'),
