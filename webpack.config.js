@@ -28,6 +28,7 @@ module.exports = {
       scope: '/',
       display: 'standalone',
       orientation: 'portrait',
+      crossorigin: 'use-credentials',
       icons: [
         {
           src: path.resolve('src/assets/icon.png'),
