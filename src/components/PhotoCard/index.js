@@ -35,7 +35,6 @@ export const PhotoCard = ({ id, liked, src = DEFAULT_IMAGE, likes = 0, username 
       <CardWrapper ref={elementRef}>
         {show && (
           <>
-            <h3>{username}</h3>
             <Link to={`/details/${id}`}>
               <ImageWrapper>
                 <Image src={src} alt={`card-${id}`} />
